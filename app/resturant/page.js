@@ -1,7 +1,7 @@
 // pages/login.js
 "use client";
 
-import { useState } from 'react';
+import { useState } from "react";
 
 export default function Login() {
   const [showPassword, setShowPassword] = useState(false);
@@ -17,10 +17,10 @@ export default function Login() {
   };
 
   return (
-    <div className={`container ${isDarkMode ? 'dark' : 'light'}`}>
+    <div className={`container ${isDarkMode ? "dark" : "light"}`}>
       <header className="header">
         <button className="themeToggle" onClick={toggleTheme}>
-          {isDarkMode ? '🌞' : '🌜'}
+          {isDarkMode ? "🌞" : "🌜"}
         </button>
       </header>
       <main className="main">
@@ -33,26 +33,30 @@ export default function Login() {
           <div className="inputGroup">
             <label htmlFor="password">Password</label>
             <input
-              type={showPassword ? 'text' : 'password'}
+              type={showPassword ? "text" : "password"}
               id="password"
               name="password"
               required
             />
-            <button
+            {/* <button
               type="button"
               onClick={() => setShowPassword(!showPassword)}
             >
               {showPassword ? 'Hide' : 'Show'}
-            </button>
+            </button> */}
           </div>
           <div className="checkboxGroup">
             <input type="checkbox" id="keepLoggedIn" name="keepLoggedIn" />
             <label htmlFor="keepLoggedIn">Keep me logged in</label>
           </div>
-          <button type="submit" className="loginButton">Log in</button>
+          <button type="submit" className="loginButton">
+            Log in
+          </button>
         </form>
         <div className="links">
-          <a href="#" className="link">Forgot username?</a>
+          <a href="#" className="link">
+            Forgot username?
+          </a>
         </div>
       </main>
       <footer className="footer">
