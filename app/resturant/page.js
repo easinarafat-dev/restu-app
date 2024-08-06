@@ -4,7 +4,6 @@
 import { useState } from "react";
 
 export default function Login() {
-  const [showPassword, setShowPassword] = useState(false);
   const [isDarkMode, setIsDarkMode] = useState(false);
 
   const handleSubmit = (e) => {
@@ -28,35 +27,32 @@ export default function Login() {
         <form className="form" onSubmit={handleSubmit}>
           <div className="inputGroup">
             <label htmlFor="username">Username or Email</label>
-            <input type="text" id="username" name="username" required />
+            <input
+              type="text"
+              id="username"
+              name="username"
+              required
+              className={isDarkMode ? "darkInput" : "lightInput"}
+            />
           </div>
           <div className="inputGroup">
             <label htmlFor="password">Password</label>
             <input
-              type={showPassword ? "text" : "password"}
+              type="password"
               id="password"
               name="password"
               required
+              className={isDarkMode ? "darkInput" : "lightInput"}
             />
-            {/* <button
-              type="button"
-              onClick={() => setShowPassword(!showPassword)}
-            >
-              {showPassword ? 'Hide' : 'Show'}
-            </button> */}
           </div>
           <div className="checkboxGroup">
             <input type="checkbox" id="keepLoggedIn" name="keepLoggedIn" />
             <label htmlFor="keepLoggedIn">Keep me logged in</label>
           </div>
-          <button type="submit" className="loginButton">
-            Log in
-          </button>
+          <button type="submit" className="loginButton">Log in</button>
         </form>
         <div className="links">
-          <a href="#" className="link">
-            Forgot username?
-          </a>
+          <a href="#" className="link">Forgot username?</a>
         </div>
       </main>
       <footer className="footer">
@@ -111,9 +107,18 @@ export default function Login() {
           width: 100%;
           padding: 8px;
           box-sizing: border-box;
+          background-color: white;
+          border: 1px solid gray;
         }
-        .inputGroup button {
-          margin-top: 5px;
+        .inputGroup input.darkInput {
+          background-color: black;
+          color: white;
+          border: 1px solid white;
+        }
+        .inputGroup input.lightInput {
+          background-color: white;
+          color: black;
+          border: 1px solid gray;
         }
         .checkboxGroup {
           display: flex;
